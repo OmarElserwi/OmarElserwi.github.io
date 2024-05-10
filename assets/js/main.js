@@ -204,28 +204,16 @@ function PageTransitions() {
     const id = event.target.dataset.id;
     console.log(id);
 
-    // Block everything else except home
-    if (id == "home") {
+    // Block everything else except selected
+    if (id) {
       // hide other sections
       mainSections.forEach((section) => {
         section.classList.remove("active");
       });
 
-      // show home section
+      // show selected section
       const element = document.getElementById(id);
       element.classList.add("active");
-    }
-
-    // Show everything else except home
-    else if (id) {
-      // show other sections
-      mainSections.forEach((section) => {
-        section.classList.add("active");
-      });
-
-      // hide home section
-      const element = document.getElementById("home");
-      element.classList.remove("active");
     }
   });
 }
