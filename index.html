@@ -71,7 +71,7 @@
             <li class="nav__item">
               <a
                 href="#home"
-                class="nav__link active-link control control-1 active-btn"
+                class="nav__link active-link"
                 data-id="home"
               >
                 <i class="uil uil-estate nav__icon"></i> Home
@@ -80,16 +80,27 @@
             <li class="nav__item">
               <a
                 href="#about"
-                class="nav__link control control-2"
+                class="nav__link"
                 data-id="about"
               >
                 <i class="uil uil-user nav__icon"></i> About
               </a>
             </li>
+            <!-- Removed qualification link since section is commented out
+            <li class="nav__item">
+              <a
+                href="#qualification"
+                class="nav__link"
+                data-id="qualification"
+              >
+                <i class="uil uil-graduation-cap nav__icon"></i> Qualification
+              </a>
+            </li>
+            -->
             <li class="nav__item">
               <a
                 href="#skills"
-                class="nav__link control control-3"
+                class="nav__link"
                 data-id="skills"
               >
                 <i class="uil uil-cog nav__icon"></i> Skills
@@ -98,7 +109,7 @@
             <li class="nav__item">
               <a
                 href="#portfolio"
-                class="nav__link control control-4"
+                class="nav__link"
                 data-id="portfolio"
               >
                 <i class="uil uil-meeting-board nav__icon"></i> Projects
@@ -107,7 +118,7 @@
             <li class="nav__item">
               <a
                 href="#contact"
-                class="nav__link control control-5"
+                class="nav__link"
                 data-id="contact"
               >
                 <i class="uil uil-message nav__icon"></i> Contact
@@ -212,260 +223,461 @@
       <!--==================== ABOUT ====================-->
       <section class="about section" id="about">
         <h2 class="section__title">About Me</h2>
-        <span class="section__subtitle"></span>
+        <span class="section__subtitle">My Introduction</span>
 
         <div class="about__container container grid">
-          <img
-            src="assets/img/landscapePicture.jpg"
-            alt=""
-            class="about__img"
-          />
+          <img src="assets/img/landscapePicture.jpg" alt="" class="about__img" />
 
           <div class="about__data">
             <p class="about__description">
-              Hello! My name is <b>Omar Elserwi</b> and I am a
-              <b>Computer Science</b> and <b>Business Adminstration</b> student
-              at both the <b>University of Waterloo</b> and
-              <b> Wilfrid Laurier University</b>. I enjoy working on
-              <b>web development</b> and learning new technologies. <br /><br />
-              I will be continuously updating this website. Work in Progress :)
+              Hello! I'm <b>Omar Elserwi</b>, a passionate software developer and a dual-degree student in <b>Computer Science</b> and <b>Business Administration</b> at the <b>University of Waterloo</b> and <b>Wilfrid Laurier University</b>. My journey in technology is driven by a desire to create innovative solutions that make a difference.
             </p>
+            <div class="about__info">
+              <div>
+                <span class="about__info-title">2+</span>
+                <span class="about__info-name">Years <br> experience</span>
+              </div>
+              <div>
+                <span class="about__info-title">10+</span>
+                <span class="about__info-name">Projects <br> completed</span>
+              </div>
+              <div>
+                <span class="about__info-title">5+</span>
+                <span class="about__info-name">Companies <br> worked with</span>
+              </div>
+            </div>
+            <div class="about__buttons">
+              <a download="" href="assets/pdf/Omar Resume General.pdf" class="button button--flex">
+                Download Resume<i class="uil uil-download-alt button__icon"></i>
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
+      <!--==================== QUALIFICATION ====================-->
+      <!-- Commented out as requested
+      <section class="qualification section" id="qualification">
+        <h2 class="section__title">Qualification</h2>
+        <span class="section__subtitle">My personal journey</span>
+
+        <div class="qualification__container container">
+          <div class="qualification__tabs">
+            <div class="qualification__button button--flex qualification__active" data-target="#education">
+              <i class="uil uil-graduation-cap qualification__icon"></i>
+              Education
+            </div>
+
+            <div class="qualification__button button--flex" data-target="#work">
+              <i class="uil uil-briefcase-alt qualification__icon"></i>
+              Work
+            </div>
+          </div>
+
+          <div class="qualification__sections">
+            ==================== QUALIFICATION CONTENT 1 ====================
+            <div class="qualification__content qualification__active" data-content id="education">
+              ==================== QUALIFICATION 1 ====================
+              <div class="qualification__data">
+                <div>
+                  <h3 class="qualification__title">Computer Science & Business Administration</h3>
+                  <span class="qualification__subtitle">University of Waterloo & Wilfrid Laurier University</span>
+                  <div class="qualification__calendar">
+                    <i class="uil uil-calendar-alt"></i>
+                    2021 - Present
+                  </div>
+                </div>
+
+                <div>
+                  <span class="qualification__rounder"></span>
+                  <span class="qualification__line"></span>
+                </div>
+              </div>
+            </div>
+
+            ==================== QUALIFICATION CONTENT 2 ====================
+            <div class="qualification__content" data-content id="work">
+              ==================== QUALIFICATION 1 ====================
+              <div class="qualification__data">
+                <div></div>
+
+                <div>
+                  <span class="qualification__rounder"></span>
+                  <span class="qualification__line"></span>
+                </div>
+
+                <div>
+                  <h3 class="qualification__title">Full Stack Developer</h3>
+                  <span class="qualification__subtitle">BookingKingApp</span>
+                  <div class="qualification__calendar">
+                    <i class="uil uil-calendar-alt"></i>
+                    2023 - Present
+                  </div>
+                </div>
+              </div>
+
+              ==================== QUALIFICATION 2 ====================
+              <div class="qualification__data">
+                <div>
+                  <h3 class="qualification__title">Software Developer Intern</h3>
+                  <span class="qualification__subtitle">Company Name</span>
+                  <div class="qualification__calendar">
+                    <i class="uil uil-calendar-alt"></i>
+                    2022 - 2023
+                  </div>
+                </div>
+
+                <div>
+                  <span class="qualification__rounder"></span>
+                  <span class="qualification__line"></span>
+                </div>
+
+                <div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      -->
+
       <!--==================== SKILLS ====================-->
       <section class="skills section" id="skills">
         <h2 class="section__title">Skills</h2>
-        <span class="section__subtitle">My technologies and tools</span>
+        <span class="section__subtitle">My technical level</span>
 
-        <div class="skills__container container grid">
+        <div class="skills__container container">
           <!-- Languages -->
-          <div class="skills__content skills__open">
-            <div class="skills__header">
-              <i class="uil uil-brackets-curly skills__icon"></i>
-              <div>
-                <h1 class="skills__title">Languages</h1>
+          <div class="skills__category">
+            <h3 class="skills__category-title">
+              <i class="uil uil-brackets-curly"></i> Languages
+            </h3>
+            <div class="skills__list">
+              <div class="skills__item">
+                <i class="devicon-cplusplus-plain colored skills__icon"></i>
+                <h3 class="skills__name">C++</h3>
               </div>
-              <i class="uil uil-angle-down skills__arrow"></i>
-            </div>
-
-            <div class="skills__list grid">
-              <div class="skills__data">
-                <div class="skills__titles">
-                  <h3 class="skills__name">Python</h3>
-                  <i class="devicon-python-plain skill__icon"></i>
-                </div>
+              <div class="skills__item">
+                <i class="devicon-javascript-plain colored skills__icon"></i>
+                <h3 class="skills__name">JavaScript</h3>
               </div>
-
-              <div class="skills__data">
-                <div class="skills__titles">
-                  <h3 class="skills__name">Java</h3>
-                  <i class="devicon-java-plain skill__icon"></i>
-                </div>
+              <div class="skills__item">
+                <i class="devicon-typescript-plain colored skills__icon"></i>
+                <h3 class="skills__name">TypeScript</h3>
               </div>
-
-              <div class="skills__data">
-                <div class="skills__titles">
-                  <h3 class="skills__name">C</h3>
-                  <i class="devicon-embeddedc-plain skill__icon"></i>
-                </div>
+              <div class="skills__item">
+                <i class="devicon-kotlin-plain colored skills__icon"></i>
+                <h3 class="skills__name">Kotlin</h3>
               </div>
-
-              <div class="skills__data">
-                <div class="skills__titles">
-                  <h3 class="skills__name">C#</h3>
-                  <i class="devicon-csharp-plain skill__icon"></i>
-                </div>
+              <div class="skills__item">
+                <i class="devicon-python-plain colored skills__icon"></i>
+                <h3 class="skills__name">Python</h3>
+              </div>
+              <div class="skills__item">
+                <i class="devicon-java-plain colored skills__icon"></i>
+                <h3 class="skills__name">Java</h3>
               </div>
             </div>
           </div>
 
-          <!-- Web Development -->
-          <div class="skills__content skills__close">
-            <div class="skills__header">
-              <i class="uil uil-browser skills__icon"></i>
-
-              <div>
-                <h1 class="skills__title">Web Development</h1>
+          <!-- Frontend -->
+          <div class="skills__category">
+            <h3 class="skills__category-title">
+              <i class="uil uil-desktop-alt"></i> Frontend
+            </h3>
+            <div class="skills__list">
+              <div class="skills__item">
+                <i class="devicon-react-original colored skills__icon"></i>
+                <h3 class="skills__name">React</h3>
               </div>
-
-              <i class="uil uil-angle-down skills__arrow"></i>
+              <div class="skills__item">
+                <i class="devicon-html5-plain colored skills__icon"></i>
+                <h3 class="skills__name">HTML5</h3>
+              </div>
+              <div class="skills__item">
+                <i class="devicon-css3-plain colored skills__icon"></i>
+                <h3 class="skills__name">CSS3</h3>
+              </div>
+              <div class="skills__item">
+                <i class="devicon-tailwindcss-plain colored skills__icon"></i>
+                <h3 class="skills__name">Tailwind</h3>
+              </div>
+              <div class="skills__item">
+                <i class="devicon-nextjs-original skills__icon"></i>
+                <h3 class="skills__name">Next.js</h3>
+              </div>
+              <div class="skills__item">
+                <i class="devicon-sass-original colored skills__icon"></i>
+                <h3 class="skills__name">Sass</h3>
+              </div>
             </div>
+          </div>
 
-            <div class="skills__list grid">
-              <div class="skills__data">
-                <div class="skills__titles">
-                  <h3 class="skills__name">JavaScript</h3>
-                  <i class="devicon-javascript-plain skill__icon"></i>
-                </div>
+          <!-- Backend -->
+          <div class="skills__category">
+            <h3 class="skills__category-title">
+              <i class="uil uil-server-network"></i> Backend
+            </h3>
+            <div class="skills__list">
+              <div class="skills__item">
+                <i class="devicon-nodejs-plain colored skills__icon"></i>
+                <h3 class="skills__name">Node.js</h3>
               </div>
-
-              <div class="skills__data">
-                <div class="skills__titles">
-                  <h3 class="skills__name">HTML</h3>
-                  <i class="devicon-html5-plain skill__icon"></i>
-                </div>
+              <div class="skills__item">
+                <i class="devicon-mongodb-plain colored skills__icon"></i>
+                <h3 class="skills__name">MongoDB</h3>
               </div>
-
-              <div class="skills__data">
-                <div class="skills__titles">
-                  <h3 class="skills__name">CSS</h3>
-                  <i class="devicon-css3-plain skill__icon"></i>
-                </div>
+              <div class="skills__item">
+                <i class="devicon-mysql-plain colored skills__icon"></i>
+                <h3 class="skills__name">MySQL</h3>
               </div>
-
-              <div class="skills__data">
-                <div class="skills__titles">
-                  <h3 class="skills__name">React</h3>
-                  <i class="devicon-react-original skill__icon"></i>
-                </div>
+              <div class="skills__item">
+                <i class="devicon-express-original skills__icon"></i>
+                <h3 class="skills__name">Express</h3>
               </div>
-
-              <div class="skills__data">
-                <div class="skills__titles">
-                  <h3 class="skills__name">MySQL</h3>
-                  <i class="devicon-mysql-plain skill__icon"></i>
-                </div>
+              <div class="skills__item">
+                <i class="devicon-firebase-plain colored skills__icon"></i>
+                <h3 class="skills__name">Firebase</h3>
+              </div>
+              <div class="skills__item">
+                <i class="devicon-graphql-plain colored skills__icon"></i>
+                <h3 class="skills__name">GraphQL</h3>
               </div>
             </div>
           </div>
 
           <!-- Tools -->
-          <div class="skills__content skills__close">
-            <div class="skills__header">
-              <i class="uil uil-wrench skills__icon"></i>
-              <div>
-                <h1 class="skills__title">Tools</h1>
+          <div class="skills__category">
+            <h3 class="skills__category-title">
+              <i class="uil uil-tools"></i> Tools
+            </h3>
+            <div class="skills__list">
+              <div class="skills__item">
+                <i class="devicon-git-plain colored skills__icon"></i>
+                <h3 class="skills__name">Git</h3>
               </div>
-
-              <i class="uil uil-angle-down skills__arrow"></i>
-            </div>
-
-            <div class="skills__list grid">
-              <div class="skills__data">
-                <div class="skills__titles">
-                  <h3 class="skills__name">Git</h3>
-                  <i class="devicon-git-plain skill__icon"></i>
-                </div>
+              <div class="skills__item">
+                <i class="devicon-docker-plain colored skills__icon"></i>
+                <h3 class="skills__name">Docker</h3>
               </div>
-
-              <div class="skills__data">
-                <div class="skills__titles">
-                  <h3 class="skills__name">Visual Studio</h3>
-                  <i class="devicon-vscode-plain skill__icon"></i>
-                </div>
+              <div class="skills__item">
+                <i class="devicon-amazonwebservices-original colored skills__icon"></i>
+                <h3 class="skills__name">AWS</h3>
               </div>
-
-              <div class="skills__data">
-                <div class="skills__titles">
-                  <h3 class="skills__name">Bash</h3>
-                  <i class="devicon-bash-plain skill__icon"></i>
-                </div>
+              <div class="skills__item">
+                <i class="devicon-vscode-plain colored skills__icon"></i>
+                <h3 class="skills__name">VS Code</h3>
               </div>
-
-              <div class="skills__data">
-                <div class="skills__titles">
-                  <h3 class="skills__name">Latex</h3>
-                  <i class="devicon-latex-original skill__icon"></i>
-                </div>
+              <div class="skills__item">
+                <i class="devicon-figma-plain colored skills__icon"></i>
+                <h3 class="skills__name">Figma</h3>
+              </div>
+              <div class="skills__item">
+                <i class="devicon-github-original skills__icon"></i>
+                <h3 class="skills__name">GitHub</h3>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!--==================== Projects ====================-->
+      <!--==================== PORTFOLIO ====================-->
       <section class="portfolio section" id="portfolio">
         <h2 class="section__title">Projects</h2>
-        <span class="section__subtitle">Some of my recent projects</span>
+        <span class="section__subtitle">My Recent Work</span>
 
-        <div class="portfolio__container container swiper">
-          <div class="swiper-wrapper">
-            <!-- CC3K -->
-            <div class="portfolio__content grid swiper-slide">
-              <img
-                src="assets/img/CC3KOverview.png"
-                alt=""
-                class="portfolio__img"
-              />
-
-              <div class="portfolio__data">
-                <h3 class="portfolio__title">CC3K</h3>
-                <p class="portfolio__description">
-                  CC3K is a CLI game, based on ChamberCrawler3000, which is a
-                  classical dungeon crawler roguelike game. This project was
-                  written using C++
-                </p>
-                <a
-                  href="https://github.com/OmarElserwi/chamber-crawler"
-                  target="_blank"
-                  class="button button--flex button--small portfolio__button"
-                >
-                  View
-                  <i class="uil uil-caret-right button__icon"></i>
-                </a>
+        <div class="portfolio__grid container">
+          <!-- CC3K -->
+          <div class="portfolio__content">
+            <img src="assets/img/portfolio/CC3KOverview.png" alt="" class="portfolio__img" />
+            <div class="portfolio__data">
+              <h3 class="portfolio__title">CC3K</h3>
+              <p class="portfolio__description">
+                A CLI-based dungeon crawler roguelike game written in C++. Features include character progression, enemy AI, and procedural dungeon generation.
+              </p>
+              <div class="portfolio__tech">
+                <span class="tech__tag">C++</span>
+                <span class="tech__tag">Object-Oriented Design</span>
+                <span class="tech__tag">Game Development</span>
               </div>
-            </div>
-
-            <!-- Simon Says -->
-            <div class="portfolio__content grid swiper-slide">
-              <img
-                src="assets/img/SimonSaysGameOverview.png"
-                alt=""
-                class="portfolio__img"
-              />
-
-              <div class="portfolio__data">
-                <h3 class="portfolio__title">Simon Says Game</h3>
-                <p class="portfolio__description">
-                  Simon Says is a game where the user must repeat the sequence
-                  of colours that the computer displays, via a nicely designed
-                  set of circles. The game progressively gets harder as the
-                  sequence gets longer, and it keeps track of your high score.
-                  This project was written primarily using TypeScript.
-                </p>
-                <a
-                  href="https://github.com/OmarElserwi/SimonSaysGame"
-                  target="_blank"
-                  class="button button--flex button--small portfolio__button"
-                >
-                  View
-                  <i class="uil uil-caret-right button__icon"></i>
+              <div class="portfolio__links">
+                <a href="https://github.com/OmarElserwi/chamber-crawler" target="_blank" class="button button--flex button--small portfolio__button">
+                  GitHub
+                  <i class="uil uil-github button__icon"></i>
                 </a>
               </div>
             </div>
           </div>
 
-          <div class="swiper-button-next">
-            <i class="uil uil-angle-right-b swiper-portfolio-icon"></i>
+          <!-- BookingKingApp -->
+          <div class="portfolio__content">
+            <img src="assets/img/portfolio/Bookineer.JPG" alt="" class="portfolio__img" />
+            <div class="portfolio__data">
+              <h3 class="portfolio__title">Bookineer</h3>
+              <p class="portfolio__description">
+                A full-featured SaaS booking system solution for businesses. Features include appointment scheduling, payment processing, and customer management.
+              </p>
+              <div class="portfolio__tech">
+                <span class="tech__tag">React</span>
+                <span class="tech__tag">Node.js</span>
+                <span class="tech__tag">MongoDB</span>
+                <span class="tech__tag">Stripe</span>
+              </div>
+              <div class="portfolio__links">
+                <a href="https://bookineer.com" target="_blank" class="button button--flex button--small portfolio__button">
+                  Live View
+                  <i class="uil uil-arrow-right button__icon"></i>
+                </a>
+              </div>
+            </div>
           </div>
-          <div class="swiper-button-prev">
-            <i class="uil uil-angle-left-b swiper-portfolio-icon"></i>
+
+          <!-- Cube Challenges -->
+          <div class="portfolio__content">
+            <img src="assets/img/portfolio/cube-challenges.JPG" alt="" class="portfolio__img" />
+            <div class="portfolio__data">
+              <h3 class="portfolio__title">Cube Challenges</h3>
+              <p class="portfolio__description">
+                A modern landing page and booking system for Cube Challenges Mississauga. Integrates with Bookineer for seamless appointment scheduling.
+              </p>
+              <div class="portfolio__tech">
+                <span class="tech__tag">React</span>
+                <span class="tech__tag">TypeScript</span>
+                <span class="tech__tag">Tailwind CSS</span>
+              </div>
+              <div class="portfolio__links">
+                <a href="https://bookcubechallenges.ca" target="_blank" class="button button--flex button--small portfolio__button">
+                  Live View
+                  <i class="uil uil-arrow-right button__icon"></i>
+                </a>
+              </div>
+            </div>
           </div>
-          <div class="swiper-pagination"></div>
+
+          <!-- WatTravl -->
+          <div class="portfolio__content">
+            <img src="assets/img/portfolio/WatTravl.JPG" alt="" class="portfolio__img portfolio__img--wattravl" />
+            <div class="portfolio__data">
+              <h3 class="portfolio__title">WatTravl</h3>
+              <p class="portfolio__description">
+                A modern navigation application for University of Waterloo students that helps users find the shortest paths between classrooms and destinations within campus buildings.
+              </p>
+              <div class="portfolio__tech">
+                <span class="tech__tag">Kotlin</span>
+                <span class="tech__tag">Android</span>
+                <span class="tech__tag">Google Maps API</span>
+              </div>
+              <div class="portfolio__links">
+                <a href="https://github.com/OmarElserwi/WatTravl" target="_blank" class="button button--flex button--small portfolio__button">
+                  GitHub
+                  <i class="uil uil-github button__icon"></i>
+                </a>
+                <a href="https://www.youtube.com/watch?v=rKdbXoNlu4o" target="_blank" class="button button--flex button--small portfolio__button">
+                  Demo
+                  <i class="uil uil-play-circle button__icon"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- PreactSwatches -->
+          <div class="portfolio__content">
+            <img src="assets/img/portfolio/Swatches.png" alt="" class="portfolio__img" />
+            <div class="portfolio__data">
+              <h3 class="portfolio__title">PreactSwatches</h3>
+              <p class="portfolio__description">
+                A modern, interactive color swatch component built with Preact and TypeScript. Features real-time preview and customization options.
+              </p>
+              <div class="portfolio__tech">
+                <span class="tech__tag">Preact</span>
+                <span class="tech__tag">TypeScript</span>
+                <span class="tech__tag">Vite</span>
+              </div>
+              <div class="portfolio__links">
+                <a href="https://github.com/OmarElserwi/PreactSwatches" target="_blank" class="button button--flex button--small portfolio__button">
+                  GitHub
+                  <i class="uil uil-github button__icon"></i>
+                </a>
+                <a href="#" class="button button--flex button--small portfolio__button">
+                  Live Demo
+                  <i class="uil uil-arrow-right button__icon"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Simon Says Game -->
+          <div class="portfolio__content">
+            <img src="assets/img/portfolio/SimonSaysGameOverview.png" alt="" class="portfolio__img" />
+            <div class="portfolio__data">
+              <h3 class="portfolio__title">Simon Says Game</h3>
+              <p class="portfolio__description">
+                A modern web-based implementation of the classic Simon Says memory game, featuring smooth animations and interactive gameplay.
+              </p>
+              <div class="portfolio__tech">
+                <span class="tech__tag">TypeScript</span>
+                <span class="tech__tag">SimpleKit</span>
+                <span class="tech__tag">Vite</span>
+              </div>
+              <div class="portfolio__links">
+                <a href="https://github.com/OmarElserwi/SimonSaysGame" target="_blank" class="button button--flex button--small portfolio__button">
+                  GitHub
+                  <i class="uil uil-github button__icon"></i>
+                </a>
+                <a href="#" class="button button--flex button--small portfolio__button">
+                  Live Demo
+                  <i class="uil uil-arrow-right button__icon"></i>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      <!--==================== CONTACT ME ====================-->
+      <!--==================== CONTACT ====================-->
       <section class="contact section" id="contact">
         <h2 class="section__title">Contact Me</h2>
-        <span class="section__subtitle">Get in touch!</span>
+        <span class="section__subtitle">Get in touch</span>
 
-        <div class="contact__container container grid">
-          <div class="contact__information">
-            <i class="uil uil-envelope contact__icon"></i>
-            <div>
-              <h3 class="contact__title">Email</h3>
-              <span class="contact__subtitle">oelserwi@uwaterloo.ca</span>
-            </div>
-          </div>
+        <div class="contact__container container">
+          <div class="contact__content">
+            <div class="contact__info-grid">
+              <div class="contact__information">
+                <i class="uil uil-envelope contact__icon"></i>
+                <div>
+                  <h3 class="contact__title">Email Me</h3>
+                  <span class="contact__subtitle">
+                    <a href="mailto:omar.else.uni@gmail.com">omar.else.uni@gmail.com</a>
+                  </span>
+                </div>
+              </div>
 
-          <div class="contact__information">
-            <i class="uil uil-location-point contact__icon"></i>
-            <div>
-              <h3 class="contact__title">Location</h3>
-              <span class="contact__subtitle">Toronto, Ontario</span>
+              <div class="contact__information">
+                <i class="uil uil-map-marker contact__icon"></i>
+                <div>
+                  <h3 class="contact__title">Location</h3>
+                  <span class="contact__subtitle">Waterloo, Ontario, Canada</span>
+                </div>
+              </div>
+              
+              <div class="contact__information">
+                <i class="uil uil-linkedin contact__icon"></i>
+                <div>
+                  <h3 class="contact__title">LinkedIn</h3>
+                  <span class="contact__subtitle">
+                    <a href="https://www.linkedin.com/in/omarelserwi" target="_blank">linkedin.com/in/omarelserwi</a>
+                  </span>
+                </div>
+              </div>
+              
+              <div class="contact__information">
+                <i class="uil uil-github contact__icon"></i>
+                <div>
+                  <h3 class="contact__title">GitHub</h3>
+                  <span class="contact__subtitle">
+                    <a href="https://github.com/OmarElserwi" target="_blank">github.com/OmarElserwi</a>
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -524,8 +736,9 @@
 
     <!--==================== SWIPER JS ====================-->
     <script src="assets/js/swiper-bundle.min.js"></script>
-
-    <!--==================== MAIN JS ====================-->
+    
+    <!--=============== MAIN JS ===============-->
     <script src="assets/js/main.js"></script>
   </body>
 </html>
+

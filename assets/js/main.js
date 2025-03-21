@@ -39,63 +39,6 @@ if (changeColor) {
       .style.setProperty("--hue-color", Math.floor(Math.random() * 360));
   });
 }
-/*==================== REVEAL SECTIONS ====================*/
-const allOtherSections = document.querySelectorAll(".section:not(.home)");
-
-const revealSection = function (entries, observer) {
-  const [entry] = entries;
-
-  if (!entry.isIntersecting) return;
-
-  entry.target.classList.remove("section--hidden");
-  observer.unobserve(entry.target);
-};
-
-const sectionObserver = new IntersectionObserver(revealSection, {
-  root: null,
-  threshold: 0.3,
-});
-
-allOtherSections.forEach(function (section) {
-  sectionObserver.observe(section);
-  console.log(section.classList);
-  section.classList.add("section--hidden");
-});
-
-/*==================== ACCORDION SKILLS ====================*/
-const skillsContent = document.getElementsByClassName("skills__content");
-const skillsHeader = document.querySelectorAll(".skills__header");
-
-for (let i = 0; i < skillsContent.length; i++) {
-  skillsContent[i].className = "skills__content skills__close";
-}
-
-function toggleSkills() {
-  let itemClass = this.parentNode.className;
-  if (itemClass === "skills__content skills__close") {
-    this.parentNode.className = "skills__content skills__open show-content";
-  } else {
-    this.parentNode.className = "skills__content skills__close";
-  }
-}
-
-skillsHeader.forEach((el) => {
-  el.addEventListener("click", toggleSkills);
-});
-
-/*==================== PORTFOLIO SWIPER  ====================*/
-let swiper = new Swiper(".portfolio__container", {
-  cssMode: true,
-  loop: true,
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-});
 
 /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
 const sections = document.querySelectorAll("section[id]");
@@ -179,43 +122,239 @@ themeButton.addEventListener("click", () => {
   localStorage.setItem("selected-icon", getCurrentIcon());
 });
 
-// Page navigation
-const mainSections = document.querySelectorAll(".section");
-const sectBtn = document.querySelectorAll(".control");
-const mainContent = document.querySelector(".main-content");
-
-function PageTransitions() {
-  //Button click active class
-  for (let i = 0; i < sectBtn.length; ++i) {
-    sectBtn[i].addEventListener("click", function () {
-      let currentBtn = document.querySelectorAll(".active-btn");
-      currentBtn[0].className = currentBtn[0].className.replace(
-        "active-btn",
-        ""
-      );
-      this.className += " active-btn";
-    });
-  }
-
-  //Sections Active Class
-  mainContent.addEventListener("click", (event) => {
-    console.log(event.target);
-    console.log(event.target.dataset);
-    const id = event.target.dataset.id;
-    console.log(id);
-
-    // Block everything else except selected
-    if (id) {
-      // hide other sections
-      mainSections.forEach((section) => {
-        section.classList.remove("active");
-      });
-
-      // show selected section
-      const element = document.getElementById(id);
-      element.classList.add("active");
+/*==================== SECTION TRANSITIONS ====================*/
+function initSectionTransitions() {
+  const sections = document.querySelectorAll('.section');
+  const navLinks = document.querySelectorAll('.nav__link');
+  
+  // Hide all sections except home
+  sections.forEach(section => {
+    if (section.id !== 'home') {
+      section.style.display = 'none';
+    } else {
+      section.classList.add('active');
     }
+  });
+
+  // Add click event to each nav link
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      if (link.getAttribute('href').startsWith('#')) {
+        e.preventDefault();
+        
+        // Get target section id
+        const targetId = link.getAttribute('href').substring(1);
+        
+        // Remove active class from all links
+        navLinks.forEach(navLink => {
+          navLink.classList.remove('active-link');
+        });
+        
+        // Add active class to clicked link
+        link.classList.add('active-link');
+        
+        // Hide all sections
+        sections.forEach(section => {
+          section.classList.remove('active');
+          section.style.display = 'none';
+        });
+        
+        // Show and add active class to target section
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+          // First display the section
+          targetSection.style.display = 'block';
+          
+          // Set scroll position to top of section
+          window.scrollTo(0, 0);
+          
+          // Then add the active class for animation
+          targetSection.classList.add('active');
+        }
+        
+        // Close mobile menu
+        navMenu.classList.remove('show-menu');
+      }
+    });
   });
 }
 
-PageTransitions();
+/*==================== ADJUST MAIN MARGIN ====================*/
+function adjustMainMargin() {
+  const header = document.querySelector('.header');
+  const main = document.querySelector('.main');
+  
+  if (header && main) {
+    // Get the actual computed height of the header
+    const headerHeight = header.offsetHeight;
+    
+    // Add a small buffer to account for the active line (2px)
+    const adjustedHeaderHeight = headerHeight + 2;
+    
+    // Set the margin-top of main to exactly match the adjusted header height
+    main.style.marginTop = `${adjustedHeaderHeight}px`;
+    
+    // Also update min-height calculation for the home section
+    const homeSection = document.getElementById('home');
+    const footer = document.querySelector('.footer');
+    const footerHeight = footer ? footer.offsetHeight : 0;
+    
+    if (homeSection) {
+      homeSection.style.minHeight = `calc(100vh - ${adjustedHeaderHeight}px - ${footerHeight}px)`;
+    }
+  }
+}
+
+// Initialize everything when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  // Clean up any section--hidden classes
+  document.querySelectorAll('.section').forEach(section => {
+    section.classList.remove('section--hidden');
+  });
+  
+  // Initialize section transitions
+  initSectionTransitions();
+  
+  // Adjust main margin to match header height exactly
+  adjustMainMargin();
+  
+  // Add event handlers for footer links
+  const footerLinks = document.querySelectorAll('.footer__link');
+  footerLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute('href').substring(1);
+      
+      // Find the corresponding nav link and trigger a click on it
+      const correspondingNavLink = document.querySelector(`.nav__link[href="#${targetId}"]`);
+      if (correspondingNavLink) {
+        correspondingNavLink.click();
+      }
+    });
+  });
+  
+  // Initialize qualification tabs
+  const qualificationSection = document.querySelector('.qualification');
+  if (qualificationSection) {
+    // Make sure qualification section is properly initialized even when hidden
+    tabs.forEach(tab => {
+      if (tab.classList.contains('qualification__active')) {
+        const target = document.querySelector(tab.dataset.target);
+        if (target) {
+          target.classList.add('qualification__active');
+        }
+      }
+    });
+  }
+});
+
+// Re-adjust on window resize
+window.addEventListener('resize', adjustMainMargin);
+
+/*==================== QUALIFICATION TABS ====================*/
+const tabs = document.querySelectorAll('[data-target]'),
+      tabContents = document.querySelectorAll('[data-content]')
+
+tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+        const target = document.querySelector(tab.dataset.target)
+        
+        tabContents.forEach(tabContent => {
+            tabContent.classList.remove('qualification__active')
+        })
+        target.classList.add('qualification__active')
+        
+        tabs.forEach(tab => {
+            tab.classList.remove('qualification__active')
+        })
+        tab.classList.add('qualification__active')
+    })
+})
+
+/*==================== CONTACT FORM ====================*/
+const contactForm = document.querySelector('.contact__form')
+
+contactForm.addEventListener('submit', (e) => {
+    e.preventDefault()
+    
+    // Get form data
+    const formData = new FormData(contactForm)
+    const data = Object.fromEntries(formData)
+    
+    // Here you would typically send the data to your backend
+    console.log('Form submitted:', data)
+    
+    // Show success message
+    alert('Thank you for your message! I will get back to you soon.')
+    contactForm.reset()
+})
+
+// Fix for the home padding inconsistency bug
+function fixHomeSection() {
+  const homeSection = document.getElementById('home');
+  if (homeSection) {
+    // Always ensure home section has the correct padding
+    homeSection.style.paddingTop = '0.5rem';
+  }
+}
+
+// Call it initially and on every section change
+fixHomeSection();
+
+// Attach to window resize and navigation events
+window.addEventListener('resize', fixHomeSection);
+
+// Original section transition logic modified to maintain padding consistency
+function handleSectionClick(e) {
+  // Prevent default link behavior
+  e.preventDefault();
+  
+  // Get the id from data-id attribute
+  const targetSectionId = this.getAttribute('data-id');
+  
+  // Get the current active section and the target section
+  const currentSection = document.querySelector('.section.active');
+  const targetSection = document.getElementById(targetSectionId);
+  
+  // Skip if we're already on this section
+  if (currentSection === targetSection) return;
+  
+  // Remove active class from current section and add to target
+  if (currentSection) {
+    currentSection.classList.remove('active');
+  }
+  
+  // Show the target section
+  if (targetSection) {
+    targetSection.classList.add('active');
+  }
+  
+  // Update active link in navigation
+  document.querySelector('.nav__link.active-link').classList.remove('active-link');
+  this.classList.add('active-link');
+  
+  // Close the menu (mobile)
+  if (window.innerWidth < 768) {
+    menuClose();
+  }
+  
+  // Make sure home padding stays consistent
+  fixHomeSection();
+}
+
+// Attach event listeners to all navigation links
+document.addEventListener('DOMContentLoaded', function() {
+  // Get all nav links with data-id attributes
+  const sectionLinks = document.querySelectorAll('.nav__link[data-id]');
+  
+  // Attach click event to each link
+  sectionLinks.forEach(link => {
+    link.addEventListener('click', handleSectionClick);
+  });
+  
+  // Also attach to footer links
+  const footerLinks = document.querySelectorAll('.footer__link[data-id]');
+  footerLinks.forEach(link => {
+    link.addEventListener('click', handleSectionClick);
+  });
+});
